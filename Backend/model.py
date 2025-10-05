@@ -54,3 +54,6 @@ class User(db.Model):
     Qualification = db.Column(db.String,nullable=False)
     dob = db.Column(db.String,nullable=False)
     scores = db.relationship("Scores",cascade="all,delete",backref="user",lazy=True)
+
+# 0 --> admin, 1 --> user
+# 0 --> admin, 1 --> doctor, 2 --> patients
