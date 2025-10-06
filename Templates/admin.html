@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Admin Page</title>
 </head>
 <body>
-    <p> I am admin of this app</p>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/admin"> Home </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/quiz"> Quiz </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/summary"> Summary </a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/logout"> logout </a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <b> Welcome {{email}} </b>
+      </span>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div>
+    <div class="card"
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> Stats </h5>
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+        <ul> id </ul>
+        <ul> name </ul>
+  </div>
+</nav>
+<button class="btn btn-primary" type="submit">Button</button>
+  </div>
+</div>
+</div>
+</div>
+
 </body>
 </html>

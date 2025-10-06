@@ -9,17 +9,17 @@
     <form action="/register", method="POST">
     <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label"> Username </label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="write your username">
+  <input type="text" class="form-control" id="formGroupExampleInput" name="email" placeholder="write your username">
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label"> Password </label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="put your password">
+  <input type="password" class="form-control"  name="password" id="formGroupExampleInput2" placeholder="put your password">
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label"> Role </label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="put your role">
+  <input type="integer" class="form-control" name="role" id="formGroupExampleInput2" placeholder="put your role">
 </div>
-<button type="button" class="btn btn-success">Success</button>
+<button type="submit" class="btn btn-success">Success</button>
 </body>
 </form> 
 </html>

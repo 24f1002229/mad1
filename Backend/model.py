@@ -50,9 +50,9 @@ class User(db.Model):
     email = db.Column(db.String,nullable=False,unique=True)
     password = db.Column(db.String,nullable=False)
     role = db.Column(db.Integer,default=1)
-    full_name = db.Column(db.String,nullable=False)
-    Qualification = db.Column(db.String,nullable=False)
-    dob = db.Column(db.String,nullable=False)
+    # full_name = db.Column(db.String,nullable=False)
+    # Qualification = db.Column(db.String,nullable=False)
+    # dob = db.Column(db.String,nullable=False)
     scores = db.relationship("Scores",cascade="all,delete",backref="user",lazy=True)
 
 # 0 --> admin, 1 --> user
