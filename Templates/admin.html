@@ -36,19 +36,40 @@
 </nav>
 
 <div>
+    {% if courses %} 
+    {% for course in courses %}
     <div class="card"
     <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"> Stats </h5>
+    <h5 class="card-title"> {{course.name}} </h5>
     <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-        <ul> id </ul>
-        <ul> name </ul>
+    {% if course.chapters%}
+    <table>
+        <tr>
+            <th> Name </th>
+            <th> No_of_questions </th>
+            <th> Actions </th>
+        </tr>
+        {% for chapter in course.chapters %}
+        <tr>
+            <td> {{chapter.name}}</td>
+            <td> {{chapter.No_of_questions}}</td>
+            <td>
+                <a href="/edit_chapter" class="btn btn-info" type="button"> Edit </a>
+                <a href="/delete_chapter" class="btn btn-danger" type="button"> Delete </a>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
   </div>
 </nav>
 <button class="btn btn-primary" type="submit">Button</button>
   </div>
 </div>
+{%endfor%}
+{%endif%}
 </div>
 </div>
 
