@@ -1,0 +1,20 @@
+{%extends admin_navbar.html%}
+{%block content%}
+    <form action="/add_course/{{email}}" method="POST">
+    <div class="mb-3">
+      <label class="form-label"> Course Id </label>
+      <input type="integer" class="form-control"  name= "id">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label"> Name </label>
+      <input type="text" class="form-control" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label"> Description </label>
+      <input type="text" class="form-control"  name="description">
+    </div>
+    <button type="submit" class="btn btn-success">Success</button>
+    <a href="/admin{{email}}" class="btn btn-successs" type="submit"> Back </a>
+</form>
+
+{%endblock%}

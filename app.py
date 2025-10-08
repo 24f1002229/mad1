@@ -1,7 +1,7 @@
 from flask import Flask
 from Backend.model import db
 
-app = None
+app = Flask(__name__)
 
 def setup():
     app = Flask(__name__)
