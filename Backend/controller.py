@@ -45,13 +45,14 @@ def admin(email):
     courses = get_course()
     return render_template("admin.html", email=email, courses=courses)
 
-def get_course():
-    courses = Course.query.all()
-    return courses
+def get_course(id=None):
+    if id:
+        return Course.query.filter_by(id=id).first()
+    return Course.query.all()
 
 @app.route("/add_course/<email>", methods=["GET","POST"])
 def add_course(email):
-    if request.form.get("POST"):
+    if request.method == "POST":
         id = request.form.get("id")
         name = request.form.get("name")
         description = request.form.get("description")
@@ -61,19 +62,26 @@ def add_course(email):
         return redirect(url_for("admin", email=email))
     return render_template("add_course.html",email=email)
 
-@app.route("/edit_course/<id>/<name>", methods=["GET","POST"])
-def edit_course():
-    course= get_course(id)
-    if request.form.get("POST"):
+@app.route("/edit_course/<id>/<email>", methods=["GET","POST"])
+def edit_course(id,email):
+    c= get_course(id)
+    if request.method == "POST":
         id = request.form.get("id")
         name = request.form.get("name")
         description = request.form.get("description")
-        course.id = id 
-        course.name = name
-        course.description = description
+        c.id = id 
+        c.name = name
+        c.description = description
         db.session.commit()
-        return redirect(url_for("admin", name=name))
-    return render_template("edit_course.html", name=name, course=course)
+        return redirect(url_for("admin", email=email))
+    return render_template("edit_course.html", email=email, course=c)
+
+@app.route("/delete_course/<id>/<email>", methods=["GET","POST"])
+def delete_course(id,email):
+    dc = get_course(id)
+    db.session.delete(dc)
+    db.session.commit()
+    return redirect(url_for("admin", email=email))
 
 @app.route("/user/<email>")
 def user(email):

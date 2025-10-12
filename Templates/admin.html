@@ -1,13 +1,13 @@
 {%extends "admin_navbar.html"%}
 {% block content%}
-
+<div class="container">
 <div>
     {% if courses %} 
     {% for course in courses %}
-    <div class="card"
+    <div class="card">
     <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"> {{course.name}} </h5>
+    <a href="/edit_course/{{course.id}}/{{email}}">{{course.name}}</a>
     <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     {% if course.chapters%}
@@ -31,12 +31,13 @@
     {%endif%}
   </div>
 </nav>
-<button class="btn btn-primary" type="submit">Button</button>
+<button class="btn btn-primary" type="submit"> Button </button>
   </div>
 </div>
 {%endfor%}
 {%endif%}
 </div>
 <a href="/add_course/{{email}}" class="btn btn-success" type="button"> Add course</a>
+</div>
 </div>
 {%endblock%}

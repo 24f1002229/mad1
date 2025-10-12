@@ -19,4 +19,15 @@ from Backend.controller import *
 if __name__=="__main__":
     with app.app_context():
         db.create_all()
+        admin = User.query.filter_by(email="admin@gmail.com").first()
+        if not admin:
+            admin = User(
+                email = "admin@gmail.com",
+                password = 1234,
+                role = 0
+            )
+            db.session.add(admin)
+            db.session.commit()
+            print("Admin created!!!")
+        print("Admin exists!!!")  
         app.run(debug=True)
