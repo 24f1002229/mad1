@@ -83,6 +83,27 @@ def delete_course(id,email):
     db.session.commit()
     return redirect(url_for("admin", email=email))
 
+@app.route("/search/<email>", methods=["GET","POST"])
+def search_query(email):
+    if request.method == "POST":
+        search_query = request.form.get("search")
+        by_user = search_by_user(search_query)
+        by_course = search_by_course(search_query)
+
+        result = {"users":by_user,"courses":by_course}
+        return render_template("search.html", email=email, result=result)
+    return redirect(url_for("admin", email=email))
+
+def search_by_user(search):
+    users = User.query.filter(User.email.ilike(f"%{search}%")).all()
+    return users
+
+def search_by_course(search):
+    courses = Course.query.filter(Course.name.ilike(f"%{search}%")).all()
+    return courses
+
+
 @app.route("/user/<email>")
 def user(email):
-    return render_template("user.html", email=email)
+    courses = Course.query.all()
+    return render_template("user.html", courses = courses, email=email)

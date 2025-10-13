@@ -1,0 +1,30 @@
+{% extends "admin_navbar.html" %}
+{% block content %}
+
+{% if users %}
+  {% for user in users %}
+  <div class="card m-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.email }}</h5>
+      <a href="/user/{{ user.email }}" class="btn btn-info">Profile Link</a>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No users found.</p>
+{% endif %}
+
+{% if courses %}
+  {% for course in courses %}
+  <div class="card m-2">
+    <div class="card-body">
+      <h5 class="card-title">{{ course.name }}</h5>
+      <a href="/edit_course/{{ course.id }}/{{ email }}" class="btn btn-primary">Edit Course</a>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No courses found.</p>
+{% endif %}
+
+{% endblock %}
